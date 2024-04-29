@@ -22,9 +22,8 @@ public class FlowLayoutEx extends JFrame {
 		setSize(500, 500);
 		super.setVisible(true);
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		// 생성자에서 메서드 호출 가능
-		initData();
 		setInitLayout();
 	}
 
@@ -42,12 +41,12 @@ public class FlowLayoutEx extends JFrame {
 	// 컴포넌트들을 배치하는 기능
 	public void setInitLayout() {
 		// 배치 관리자 --> BorderLayout 이라는 배치 관리자가 기본으로 활용된다.
-		//FlowLayout flowLayout = new FlowLayout;
+		// FlowLayout flowLayout = new FlowLayout;
 		// super.setLayout(flowLayout); // 배치관리자 --> FlowLayout
-		
+
 		// 배치 관리자 생성 및 JFrame 셋팅
 		super.setLayout(new FlowLayout(FlowLayout.LEADING, 50, 50)); // 배치관리자 --> FlowLayout
-		
+
 		// 컴포넌트들을 붙이다.
 		super.add(button1);
 		super.add(button2);
