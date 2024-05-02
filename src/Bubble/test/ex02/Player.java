@@ -138,7 +138,7 @@ public class Player extends JLabel implements Moveable {
 			}
 		}).start();
 
-	}
+	} // end of up
 
 	@Override
 	public void down() {
