@@ -1,4 +1,4 @@
-package Bubble.test.ex06;
+package Bubble.test.ex07;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
