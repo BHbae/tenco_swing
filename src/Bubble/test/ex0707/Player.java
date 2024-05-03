@@ -1,4 +1,4 @@
-package Bubble.test.ex06;
+package Bubble.test.ex0707;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -22,14 +22,16 @@ public class Player extends JLabel implements Moveable {
 	// 플레이어 속도 상태
 	private final int SPEED = 4;
 	private final int JUMPSPEED = 2;
+	
+	// enum 타입의 활용
+	PlayerWay playerWay;
 
+	// get, set
 
 	public Player() {
 		initData();
 		setInitLayout();
 	}
-	
-	// get, set
 
 	public int getX() {
 		return x;
@@ -135,6 +137,8 @@ public class Player extends JLabel implements Moveable {
 
 		leftWallCrash = false;
 		rightWallCrash = false;
+		
+		playerWay = playerWay.RIGHT;
 
 		setIcon(playerR);
 		setSize(50, 50);
@@ -146,6 +150,7 @@ public class Player extends JLabel implements Moveable {
 
 	@Override
 	public void left() {
+		this.playerWay = PlayerWay.LEFT;
 		left = true;
 		setIcon(playerL);
 
@@ -167,6 +172,7 @@ public class Player extends JLabel implements Moveable {
 
 	@Override
 	public void right() {
+		playerWay = PlayerWay.RIGHT;
 		right = true;
 		setIcon(playerR);
 
