@@ -1,4 +1,4 @@
-package Bubble;
+package Bubble.test.ex08;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -7,19 +7,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import Bubble.components.Enemy;
-import Bubble.components.Player;
-import Bubble.service.BackgroundPlayerService;
-
 public class BubbleFrame extends JFrame {
-
-	// 컨텍스트를 생성하는 방법(셀프 참조0
-	BubbleFrame mContext = this;
 
 	private JLabel backgroundMap;
 	// 포함관계 - 콤포지션
 	private Player player;
-	private Enemy enemy1;
 
 	public BubbleFrame() {
 
@@ -40,9 +32,7 @@ public class BubbleFrame extends JFrame {
 		setContentPane(backgroundMap); // add 처리
 		setSize(1000, 640);
 
-		// mContext --> 참조 타입( )--> 주소랎에 크기는 기본 4byte 이다.
-		player = new Player(mContext);
-		enemy1 = new Enemy(mContext);
+		player = new Player();
 
 	}
 
@@ -54,7 +44,6 @@ public class BubbleFrame extends JFrame {
 		setVisible(true);
 
 		add(player);
-		add(enemy1);
 	}
 
 	private void addEventListener() {
@@ -85,11 +74,8 @@ public class BubbleFrame extends JFrame {
 					player.up();
 					break;
 				case KeyEvent.VK_SPACE:
-					// Bubble bubble = new Bubble(player);
-					// add(bubble);
-					// 프레임의 컴포넌트를 add 동작은 누구? JFrame --> add() 메서드 이다.
-					// 버블 실행시 끊김 현상이 발생하는 이유는 뭘까?
-					player.attack();
+					Bubble bubble = new Bubble(player);
+					add(bubble);
 					break;
 				default:
 					break;
@@ -114,18 +100,8 @@ public class BubbleFrame extends JFrame {
 		});
 	}
 
-	// getter
-	public Player getPlayer() {
-		return player;
-	}
-	public Enemy getEnemy() {
-		return enemy1;
-	}
 	// 코드 테스트
 	public static void main(String[] args) {
-		// main 함수를 가지고 있는 클래스는 하위에 생성된 모든 객체들에
-		// 주고값을 알고 있다. (중요함!!!!!!!!!!)
-
 		new BubbleFrame();
 	} // end of main
 
